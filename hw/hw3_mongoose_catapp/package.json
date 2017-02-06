@@ -1,0 +1,19 @@
+{
+  "name": "rachely",
+  "version": "1.0.0",
+  "description": "",
+  "main": "string-length.js",
+  "dependencies": {
+    "bl": "^1.2.0",
+    "body-parser": "^1.16.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
