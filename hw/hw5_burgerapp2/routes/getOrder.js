@@ -46,11 +46,12 @@ routes.newOrder = function(req, res) {
   var prev_order = req.body.ingredients.split(' ');
   prev_order.splice(-1,1);
   var newOrder = new finalOrders({ingredients: prev_order, price: total});
-  total = 0;
   newOrder.save(function(err){
     if (err) {
       console.log("Problem saving new order", err);
     }
+    total = 0;
+    res.send();
   });
 };
 

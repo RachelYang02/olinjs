@@ -68,7 +68,7 @@ $('#addOrder').submit(function(event){
   }
   $.post('newOrder',{
     ingredients:ingred
-  }).done(function(burg){
+  }).done(function(){
     $('#submitMessage').text('Order is submitted!!!')
     for (i=0;i<check.length;i++){
       check[i].checked = false;
