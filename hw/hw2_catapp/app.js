@@ -20,6 +20,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', index.home);
 app.get('/cats/new',index.new_cat);
 app.get('/cats',index.age_cat);
+
+//Instead of using app.param, you are directly passing color as a param in your app.get callback, so you could just do app.get('/cats/bycolor/:color', cats.sortedCat); In your routes.js, you can access the params by using req.params.color.
 app.get('/cats/bycolor',index.by_color);
 app.param(['color'], index.color_cat);
 app.get('/cats/bycolor/:color', function (req,res,next){

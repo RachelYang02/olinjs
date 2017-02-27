@@ -1,3 +1,4 @@
+/*Don't forget to npm install all dependencies that your application needs using npm install <packageName> --save. Right now express-handlebars was missing*/
 {
   "name": "rachely",
   "version": "1.0.0",

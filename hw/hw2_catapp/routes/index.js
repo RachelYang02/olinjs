@@ -3,7 +3,7 @@ var router = express.Router();
 var db = require('../public/javascripts/fakeDatabase');
 
 // function that constructs and returns cat object
-function Cat(){
+function Cat(){ //awesome implementation of a cate object
   names = ["Bob","Joe","Mr. Kittens","Fluffy","Snoop Dog"];
   ages = ["1","15","60","5","0.5"];
   colors = ["blue","ginger","marbled","white","black"];
@@ -17,6 +17,7 @@ function Cat(){
 
 // home page, links to extension pages
 var home = function (req,res) {
+  //We talked briefly about this in class, but you could have an if statement for all of the different pages in your navbar, if you didn't want the one that you are currently on to show up. Additionally, you could just have a navbar in your handlebars for all of your routes be permanent, instead of needing to pass in and change it every time
   res.render("home", {"pages": [
     {name:"/cats/new",label:"ADD A CAT"},
     {name:"/cats",label:"CHECK OUT OUR CATS"},
@@ -25,6 +26,7 @@ var home = function (req,res) {
   });
 };
 
+//Function and variable name should be camelCased
 // creates new cat record by random
 var new_cat = function (req, res) {
   newest_cat = Cat()
@@ -34,8 +36,8 @@ var new_cat = function (req, res) {
     {name:"/cats",label:"CHECK OUT OUR CATS"},
     {name:"/cats/bycolor",label:"SEARCH CATS BY COLOR"},
     {name:"/cats/delete/old",label:"DELETE A CAT"},
-    {message:"Added a new cat! Say hello to " + newest_cat.name + 
-    ", who is " + newest_cat.color + " and " + 
+    {message:"Added a new cat! Say hello to " + newest_cat.name +
+    ", who is " + newest_cat.color + " and " +
     newest_cat.age + " years old."}]
   });
 };
@@ -43,11 +45,12 @@ var new_cat = function (req, res) {
 // sorts list of cats by age
 var age_cat = function (req,res) {
   cat_inventory = db.getAll();
-  cat_inventory.sort(function(a,b) {
+  cat_inventory.sort(function(a,b) { //awesome use of sort function
     return parseFloat(a.age) - parseFloat(b.age);
   });
   var msg = ""
-  cat_inventory.forEach(function(cat){
+  cat_inventory.forEach(function(cat){ //awesome use of for each function
+    //Having your message (or different messages) in your handlebars would be more useful, and again, you can determine whether or not each message is displayed through a boolean that you can set, so that you can just pass in cat as a part of your render object. Try to have as little front end string code in your backend.
     msg = msg + "name: " + cat.name + ", color: " + cat.color
     + ", age: " + cat.age + " | ";
   })
@@ -64,7 +67,7 @@ var by_color = function (req,res) {
   res.render("home", {"pages":  [
     {name:"/cats/new",label:"ADD A CAT"},
     {name:"/cats",label:"CHECK OUT OUR CATS"},
-    {name:"/cats/delete/old",label:"DELETE A CAT"}], 
+    {name:"/cats/delete/old",label:"DELETE A CAT"}],
     "color": [
     {name:"/cats/bycolor/blue",label:"BLUE CATS"},
     {name:"/cats/bycolor/ginger",label:"GINGER CATS"},

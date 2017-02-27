@@ -1,0 +1,12 @@
+Homework Feedback:
+
+Functionality:
+- Completion: All of the features work!! Nice job. I like having the different links available on the page, from an user experience standpoint. (20/20)
+- Bug Free: The app does seem bug free. Maybe thinking through edge cases for when the user tries to delete and no cats exist would be a good thing to include. (10/10)
+
+Quality:
+- Good Coding Practices: I commented your code with different coding practices you could follow, including what to have in your backend, versus thinking through how your front-end should work, but great work! (9/10)
+- Readability: Functions and variable names should be camelCased, good comments, but look at my comments about readability in our handlebars files. (9/10)
+
+
+Keep up the good work!! :)
